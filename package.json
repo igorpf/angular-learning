@@ -11,7 +11,7 @@
 
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "e2e-headless": "ng e2e --protractor-config='e2e/ci.protractor.conf.js'",
-    "all-tests": "npm run lint && npm run test-headless && npm run e2eheadless"
+    "all-tests": "npm run lint && npm run test-headless && npm run e2e-headless"
   },
   "private": true,
   "dependencies": {
