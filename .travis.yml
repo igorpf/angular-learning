@@ -10,8 +10,8 @@ before_script:
   - "npm install -g @angular/cli"
 
 script:
-  - "npm run all-tests"
-  
+  - "npm run unit-tests"
+
 matrix:
   include:
   - os: linux
