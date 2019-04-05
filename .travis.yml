@@ -6,6 +6,11 @@ sudo: true
 addons:
   - chrome: stable
 
+branches:
+  only: 
+    - master
+    - develop
+
 before_script:
   - "npm install -g @angular/cli"
 
