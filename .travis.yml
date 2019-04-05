@@ -1,12 +1,15 @@
 language: node_js
 node_js:
   - "10"
+addons:
+  - chrome: stable
 before_script:
   - "npm install"
 script:
-  - "npm test"
-  - "npm e2e"
-  - "npm build"
+  - "npm run lint"
+  - "npm run test-headless"
+  - "npm run e2e"
+  - "npm run build"
 matrix:
   include:
   - os: linux
