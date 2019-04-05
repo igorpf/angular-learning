@@ -1,15 +1,17 @@
 language: node_js
 node_js:
-  - "10"
+  - "10.4.1"
+sudo: true
+
 addons:
   - chrome: stable
+
 before_script:
-  - "npm install"
+  - "npm install -g @angular/cli"
+
 script:
-  - "npm run lint"
-  - "npm run test-headless"
-  - "npm run e2e"
-  - "npm run build"
+  - "npm run all-tests"
+  
 matrix:
   include:
   - os: linux

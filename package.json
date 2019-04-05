@@ -5,10 +5,13 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
+    "test": "ng test",  
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
+    "e2e-headless": "ng e2e --protractor-config='e2e/ci.protractor.conf.js'",
+    "all-tests": "npm run lint && npm run test-headless && npm run e2eheadless"
   },
   "private": true,
   "dependencies": {
