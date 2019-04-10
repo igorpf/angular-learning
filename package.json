@@ -9,10 +9,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
 
-    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
     "e2e-headless": "ng e2e --protractor-config='e2e/ci.protractor.conf.js'",
     "unit-tests": "npm run lint && npm run test-headless",
-    "all-tests": "npm run lint && npm run test-headless && npm run e2e-headless"
+    "all-tests": "npm run lint && npm run test-headless && npm run e2e-headless",
+    "test-debug": "ng test --browsers ChromeDebug"
   },
   "private": true,
   "dependencies": {
