@@ -13,13 +13,13 @@ import {
         MatSidenavModule,
         MatToolbarModule,
         MatIconModule,
-        MatListModule,
+        MatListModule
     ],
     exports: [
         MatSidenavModule,
         MatToolbarModule,
         MatIconModule,
-        MatListModule,
+        MatListModule
     ]
 })
 export class MaterialModule { }
