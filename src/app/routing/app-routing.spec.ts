@@ -2,7 +2,7 @@ import { TestBed, async, fakeAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { routes, AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from '../components/login/login.component';
 
 describe('AppRoutingModule', () => {
 
@@ -30,7 +30,7 @@ describe('AppRoutingModule.forRoot()', () => {
             declarations: [
                 LoginComponent
             ]
-        })
+        });
     }));
 
     it(`should create AppRoutingModule`, () => {
