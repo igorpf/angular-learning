@@ -1,7 +1,7 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav role="navigation">
     <mat-nav-list>
-      <a mat-list-item routerLink="/login">
+      <a mat-list-item routerLink="/login" class="login-button">
         <mat-icon class="icon">input</mat-icon>
         <span class="label">Login</span>
       </a>
@@ -26,7 +26,7 @@
       <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <ul fxLayout fxLayoutGap="20px" class="navigation-items">
           <li>
-            <a>
+            <a class="login-button">
               <mat-icon class="icon" routerLink="/login">input</mat-icon>
               <span class="label">Login</span>
             </a>
