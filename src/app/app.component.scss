@@ -4,6 +4,10 @@ mat-sidenav {
   height: 100%;
 }
 
+mat-toolbar {
+  overflow-x: auto;
+}
+
 mat-sidenav {
   width: 250px;
 }
@@ -27,7 +31,7 @@ a:active {
 
 .icon {
   display: inline-block;
-  height: 30px;
+  height: 1.25em;
   margin: 0 auto;
   padding-right: 5px;
   text-align: center;
@@ -37,7 +41,11 @@ a:active {
 
 .label {
   display: inline-block;
-  line-height: 30px;
+  line-height: 1.25em;
   margin: 0;
   width: 85%;
+}
+
+main {
+  margin: 2em;
 }

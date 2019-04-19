@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxMaskModule } from 'ngx-mask'
 
@@ -28,7 +28,7 @@ import { RegistrationFormComponent } from './forms/registration-form/registratio
     ReactiveFormsModule,
     NgxMaskModule.forRoot()
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'en' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
