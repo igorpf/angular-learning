@@ -28,7 +28,7 @@ import { RegistrationFormComponent } from './forms/registration-form/registratio
     ReactiveFormsModule,
     NgxMaskModule.forRoot()
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'en' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
