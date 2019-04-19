@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { cpfValidator } from 'src/app/validators/cpf-validator';
+import { cpfMask } from '../mask';
 
 @Component({
   selector: 'app-registration-form',
@@ -10,6 +11,8 @@ import { cpfValidator } from 'src/app/validators/cpf-validator';
 export class RegistrationFormComponent implements OnInit {
 
   registrationForm: FormGroup;
+
+  cpfMask: string = cpfMask;
 
   constructor(private formBuilder: FormBuilder) { }
 

@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSubmit(registrationForm.value)" [formGroup]="registrationForm">
   <input type="text" formControlName="email" name="email">
 
-  <input type="text" formControlName="cpf" name="cpf">
+  <input type="text" formControlName="cpf" name="cpf" mask="{{ cpfMask }}" [showMaskTyped]="true">
 
   <input type="password" formControlName="password" name="password">
   <input type="password" formControlName="password-confirmation" name="password-confirmation">

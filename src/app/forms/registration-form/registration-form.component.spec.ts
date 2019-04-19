@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistrationFormComponent } from './registration-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
+import { updateInputDispatchingEvent } from '../input.spec';
 
 describe('RegistrationFormComponent', () => {
   let component: RegistrationFormComponent;
@@ -11,7 +13,8 @@ describe('RegistrationFormComponent', () => {
     TestBed.configureTestingModule({
       declarations: [RegistrationFormComponent],
       imports: [
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxMaskModule.forRoot()
       ]
     })
       .compileComponents();
@@ -34,14 +37,10 @@ describe('RegistrationFormComponent', () => {
     const expectedCpf = "26527496095";
 
     let element = fixture.nativeElement;
-    element.querySelector('input[name=email]').value = expectedEmail;
-    element.querySelector('input[name=email]').dispatchEvent(new Event('input'));
-    element.querySelector('input[name=password]').value = expectedPassword;
-    element.querySelector('input[name=password]').dispatchEvent(new Event('input'));
-    element.querySelector('input[name=password-confirmation]').value = expectedPassword;
-    element.querySelector('input[name=password-confirmation]').dispatchEvent(new Event('input'));
-    element.querySelector('input[name=cpf]').value = expectedCpf;
-    element.querySelector('input[name=cpf]').dispatchEvent(new Event('input'));
+    updateInputDispatchingEvent(element.querySelector('input[name=email]'), expectedEmail);
+    updateInputDispatchingEvent(element.querySelector('input[name=password]'), expectedPassword);
+    updateInputDispatchingEvent(element.querySelector('input[name=password-confirmation]'), expectedPassword);
+    updateInputDispatchingEvent(element.querySelector('input[name=cpf]'), expectedCpf);
 
     fixture.detectChanges();
 
@@ -57,15 +56,16 @@ describe('RegistrationFormComponent', () => {
     expect(component.submitted.emit).toHaveBeenCalled();
   });
 
-  it('should not send Registration credentials on wrong email', () => {
+  it('should not send registration credentials on wrong email', () => {
     const expectedEmail = "not an email";
     const expectedPassword = "fake password";
+    const expectedCpf = "26527496095";
 
     let element = fixture.nativeElement;
-    element.querySelector('input[name=email]').value = expectedEmail;
-    element.querySelector('input[name=email]').dispatchEvent(new Event('input'));
-    element.querySelector('input[name=password]').value = expectedPassword;
-    element.querySelector('input[name=password]').dispatchEvent(new Event('input'));
+    updateInputDispatchingEvent(element.querySelector('input[name=email]'), expectedEmail);
+    updateInputDispatchingEvent(element.querySelector('input[name=password]'), expectedPassword);
+    updateInputDispatchingEvent(element.querySelector('input[name=password-confirmation]'), expectedPassword);
+    updateInputDispatchingEvent(element.querySelector('input[name=cpf]'), expectedCpf);
 
     fixture.detectChanges();
 
