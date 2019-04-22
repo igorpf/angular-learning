@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { RegistrationFormComponent } from './forms/registration-form/registration-form.component';
+import { windowFactory, localStorageFactory } from './bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,11 @@ import { RegistrationFormComponent } from './forms/registration-form/registratio
     ReactiveFormsModule,
     NgxMaskModule.forRoot()
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: 'window', useFactory: windowFactory },
+    { provide: 'localStorage', useFactory: localStorageFactory }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
