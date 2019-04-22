@@ -77,4 +77,22 @@ describe('RegistrationFormComponent', () => {
     expect(component.registrationForm.valid).toBeFalsy();
     expect(component.submitted.emit).not.toHaveBeenCalled();
   });
+
+  it('should not send registration credentials on different passwords', () => {
+    const expectedEmail = "test@example.com";
+    const expectedPassword = "fake password";
+    const expectedCpf = "26527496095";
+
+    let element = fixture.nativeElement;
+    updateInputDispatchingEvent(element.querySelector('input[name=email]'), expectedEmail);
+    updateInputDispatchingEvent(element.querySelector('input[name=password]'), expectedPassword);
+    updateInputDispatchingEvent(element.querySelector('input[name=password-confirmation]'), 'another password');
+    updateInputDispatchingEvent(element.querySelector('input[name=cpf]'), expectedCpf);
+
+    fixture.detectChanges();
+
+    element.querySelector('button[type="submit"]').click();
+    expect(component.registrationForm.valid).toBeFalsy();
+    expect(component.submitted.emit).not.toHaveBeenCalled();
+  });
 });

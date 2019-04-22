@@ -22,6 +22,6 @@
       <input matInput type="password" formControlName="password-confirmation" name="password-confirmation">
     </mat-form-field>
 
-    <button mat-button type="submit" i18n="@@registrationFormRegister">reg</button>
+    <button mat-button type="submit" [disabled]="!registrationForm.valid" i18n="@@registrationFormRegister">reg</button>
   </div>
 </form>

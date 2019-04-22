@@ -22,6 +22,8 @@ export class RegistrationFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       "password-confirmation": ['', [Validators.required]]
+    }, {
+      validator: this.passwordsMatch
     });
   }
 
@@ -35,6 +37,10 @@ export class RegistrationFormComponent implements OnInit {
     if (this.registrationForm.valid) {
       this.submitted.emit({ email, cpf, password, passwordConfirmation });
     }
+  }
+
+  private passwordsMatch(group: FormGroup) {
+    return group.controls['password'].value == group.controls['password-confirmation'].value? null : {match: false};
   }
 
 }
