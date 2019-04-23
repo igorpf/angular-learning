@@ -10,28 +10,28 @@ import { cpfMask } from '../mask';
 })
 export class RegistrationFormComponent implements OnInit {
 
+  constructor(private formBuilder: FormBuilder) { }
+
   registrationForm: FormGroup;
 
   cpfMask: string = cpfMask;
-
-  constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
-    this.registrationForm = this.formBuilder.group({
-      cpf: ['', [Validators.required, cpfValidator()]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      "password-confirmation": ['', [Validators.required]]
-    }, {
-      validator: this.passwordsMatch
-    });
-  }
 
   @Input()
   email: string;
 
   @Output()
   submitted = new EventEmitter();
+
+  ngOnInit() {
+    this.registrationForm = this.formBuilder.group({
+      cpf: ['', [Validators.required, cpfValidator()]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      'password-confirmation': ['', [Validators.required]]
+    }, {
+      validator: this.passwordsMatch
+    });
+  }
 
   onSubmit({ email, cpf, password, passwordConfirmation }) {
     if (this.registrationForm.valid) {
@@ -40,7 +40,7 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   private passwordsMatch(group: FormGroup) {
-    return group.controls['password'].value == group.controls['password-confirmation'].value? null : {match: false};
+    return group.controls.password.value === group.controls['password-confirmation'].value ? null : {match: false};
   }
 
 }

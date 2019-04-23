@@ -29,10 +29,10 @@ describe('LoginFormComponent', () => {
   });
 
   it('should send login credentials on submit', () => {
-    const expectedEmail = "test@example.com";
-    const expectedPassword = "fake password";
+    const expectedEmail = 'test@example.com';
+    const expectedPassword = 'fake password';
 
-    let element = fixture.nativeElement;
+    const element = fixture.nativeElement;
     element.querySelector('input[name=email]').value = expectedEmail;
     element.querySelector('input[name=email]').dispatchEvent(new Event('input'));
     element.querySelector('input[name=password]').value = expectedPassword;
@@ -50,10 +50,10 @@ describe('LoginFormComponent', () => {
   });
 
   it('should not send login credentials on wrong email', () => {
-    const expectedEmail = "not an email";
-    const expectedPassword = "fake password";
+    const expectedEmail = 'not an email';
+    const expectedPassword = 'fake password';
 
-    let element = fixture.nativeElement;
+    const element = fixture.nativeElement;
     element.querySelector('input[name=email]').value = expectedEmail;
     element.querySelector('input[name=email]').dispatchEvent(new Event('input'));
     element.querySelector('input[name=password]').value = expectedPassword;

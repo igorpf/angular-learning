@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './routing/app-routing.module';
 import { MaterialModule } from './material.module';
@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { RegistrationFormComponent } from './forms/registration-form/registration-form.component';
 import { windowFactory, localStorageFactory } from './bootstrap';
+import { TranslationService } from './services/translation.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { windowFactory, localStorageFactory } from './bootstrap';
     NgxMaskModule.forRoot()
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: LOCALE_ID, useFactory: (translationService: TranslationService) => translationService.getCurrentLocale(), deps: [TranslationService] },
     { provide: 'window', useFactory: windowFactory },
     { provide: 'localStorage', useFactory: localStorageFactory }
   ],

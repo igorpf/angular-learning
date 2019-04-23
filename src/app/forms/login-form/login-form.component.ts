@@ -8,9 +8,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
 
+  constructor(private formBuilder: FormBuilder) {}
+
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  @Input()
+  email: string;
+
+  @Output()
+  submitted = new EventEmitter();
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -18,12 +24,6 @@ export class LoginFormComponent implements OnInit {
       password: ['', [Validators.required]]
     });
   }
-
-  @Input()
-  email: string;
-
-  @Output()
-  submitted = new EventEmitter();
 
   onSubmit({ email, password }) {
     if (this.loginForm.valid) {

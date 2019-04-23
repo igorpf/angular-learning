@@ -7,7 +7,12 @@ export function cpfValidator() {
         if (!cpf) {
             return standardError;
         }
-        let numbers, digits, sum, i, result, hasOnlyEqualDigits = true;
+        let numbers;
+        let digits;
+        let sum;
+        let i;
+        let result;
+        let hasOnlyEqualDigits = true;
         if (cpf.length < 11) {
             return standardError;
         }

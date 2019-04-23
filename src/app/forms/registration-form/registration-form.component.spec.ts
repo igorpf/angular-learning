@@ -36,11 +36,11 @@ describe('RegistrationFormComponent', () => {
   });
 
   it('should send registration credentials on submit', () => {
-    const expectedEmail = "test@example.com";
-    const expectedPassword = "fake password";
-    const expectedCpf = "26527496095";
+    const expectedEmail = 'test@example.com';
+    const expectedPassword = 'fake password';
+    const expectedCpf = '26527496095';
 
-    let element = fixture.nativeElement;
+    const element = fixture.nativeElement;
     updateInputDispatchingEvent(element.querySelector('input[name=email]'), expectedEmail);
     updateInputDispatchingEvent(element.querySelector('input[name=password]'), expectedPassword);
     updateInputDispatchingEvent(element.querySelector('input[name=password-confirmation]'), expectedPassword);
@@ -61,11 +61,11 @@ describe('RegistrationFormComponent', () => {
   });
 
   it('should not send registration credentials on wrong email', () => {
-    const expectedEmail = "not an email";
-    const expectedPassword = "fake password";
-    const expectedCpf = "26527496095";
+    const expectedEmail = 'not an email';
+    const expectedPassword = 'fake password';
+    const expectedCpf = '26527496095';
 
-    let element = fixture.nativeElement;
+    const element = fixture.nativeElement;
     updateInputDispatchingEvent(element.querySelector('input[name=email]'), expectedEmail);
     updateInputDispatchingEvent(element.querySelector('input[name=password]'), expectedPassword);
     updateInputDispatchingEvent(element.querySelector('input[name=password-confirmation]'), expectedPassword);
@@ -79,11 +79,11 @@ describe('RegistrationFormComponent', () => {
   });
 
   it('should not send registration credentials on different passwords', () => {
-    const expectedEmail = "test@example.com";
-    const expectedPassword = "fake password";
-    const expectedCpf = "26527496095";
+    const expectedEmail = 'test@example.com';
+    const expectedPassword = 'fake password';
+    const expectedCpf = '26527496095';
 
-    let element = fixture.nativeElement;
+    const element = fixture.nativeElement;
     updateInputDispatchingEvent(element.querySelector('input[name=email]'), expectedEmail);
     updateInputDispatchingEvent(element.querySelector('input[name=password]'), expectedPassword);
     updateInputDispatchingEvent(element.querySelector('input[name=password-confirmation]'), 'another password');
