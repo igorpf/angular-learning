@@ -1,23 +1,17 @@
-import { TestBed } from '@angular/core/testing';
-
 import { LocalStorageService } from './local-storage.service';
 import { getStorage } from 'test/polyfill/localStorage';
 
 describe('LocalStorageService', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    providers: [
-      { provide: 'localStorage', useValue: getStorage() }
-    ]
-  }));
+  let service: LocalStorageService;
+  beforeEach(() => {
+    service = new LocalStorageService(getStorage());
+  });
 
   it('should be created', () => {
-    const service: LocalStorageService = TestBed.get(LocalStorageService);
     expect(service).toBeTruthy();
   });
 
   it('should save correctly a value', () => {
-    const service: LocalStorageService = TestBed.get(LocalStorageService);
-
     const key = 'key';
     const value = { 1: '13' };
 
@@ -26,8 +20,6 @@ describe('LocalStorageService', () => {
   });
 
   it('should save remove a value', () => {
-    const service: LocalStorageService = TestBed.get(LocalStorageService);
-
     const key = 'key';
     const value = { 1: '13' };
 

@@ -7,6 +7,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { RegistrationFormComponent } from './forms/registration-form/registration-form.component';
+import { NgxMaskModule } from 'ngx-mask';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   let app: AppComponent;
@@ -19,11 +22,14 @@ describe('AppComponent', () => {
         RouterTestingModule.withRoutes(routes),
         MaterialModule,
         FlexLayoutModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        NgxMaskModule.forRoot(),
+        ReactiveFormsModule
       ],
       declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        RegistrationFormComponent
       ],
       providers: []
     }).compileComponents().then(() => {

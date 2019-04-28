@@ -3,6 +3,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { routes, AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from '../components/login/login.component';
+import { RegistrationFormComponent } from '../forms/registration-form/registration-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 describe('AppRoutingModule', () => {
 
@@ -25,10 +29,14 @@ describe('AppRoutingModule.forRoot()', () => {
         TestBed.configureTestingModule({
             imports: [
                 RouterTestingModule.withRoutes(routes),
-                AppRoutingModule
+                AppRoutingModule,
+                ReactiveFormsModule,
+                MaterialModule,
+                NgxMaskModule.forRoot()
             ],
             declarations: [
-                LoginComponent
+                LoginComponent,
+                RegistrationFormComponent
             ]
         });
     }));
@@ -37,7 +45,7 @@ describe('AppRoutingModule.forRoot()', () => {
         expect(TestBed.get(AppRoutingModule)).not.toBeNull();
     });
 
-    it(`should redirect to login when clicking on login button`, fakeAsync(() => {
+    it(`should provide router module`, fakeAsync(() => {
         const router = TestBed.get(RouterModule);
         expect(router).not.toBeNull();
     }));
