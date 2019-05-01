@@ -15,7 +15,7 @@ export class AppComponent {
 
     this.route.queryParamMap.subscribe(params => {
       const validLanguages = ['pt', 'en'];
-      const requiredLanguage = params.lang || this.localStorage.getItem('lang') || 'en';
+      const requiredLanguage = params.get('lang') || this.localStorage.getItem('lang') || 'en';
       const usedLanguage = validLanguages.some(l => l === requiredLanguage) ? requiredLanguage : 'en';
 
       localStorage.setItem('lang', usedLanguage);
