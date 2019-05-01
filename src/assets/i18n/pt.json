@@ -1,0 +1,12 @@
+{
+    "registrationForm": {
+        "header": "Formulário de registro",
+        "submit": "Registrar"
+    },
+    "form": {
+        "email": "Email",
+        "cpf": "CPF",
+        "password": "Senha",
+        "passwordConfirmation": "Confirmação de senha"
+    }
+}
