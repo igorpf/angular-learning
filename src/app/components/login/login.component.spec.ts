@@ -21,7 +21,7 @@ describe('LoginComponent', () => {
         NoopAnimationsModule,
         TranslateModule.forRoot()
       ],
-      declarations: [ 
+      declarations: [
         LoginComponent,
         RegistrationFormComponent
       ]

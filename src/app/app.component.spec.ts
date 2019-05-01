@@ -50,10 +50,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular-first-steps');
   });
 
-  it(`should default to english language when an invalid language is selected`, 
-    inject([TranslateService, ActivatedRoute, LocalStorageService], (translate: TranslateService, route, localStorage: LocalStorageService) => {
+  it(`should default to english language when an invalid language is selected`,
+    inject([TranslateService, ActivatedRoute, LocalStorageService],
+          (translate: TranslateService, route, localStorage: LocalStorageService) => {
       localStorage.setItem('lang', 'some invalid language');
-      const app = new AppComponent(translate, localStorage, route);
+      const appComponent = new AppComponent(translate, localStorage, route);
       expect(translate.getBrowserLang()).toEqual('en');
   }));
 });

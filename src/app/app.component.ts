@@ -10,12 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
   constructor(private translate: TranslateService,
-    private localStorage: LocalStorageService,
-    private route: ActivatedRoute) {
+              private localStorage: LocalStorageService,
+              private route: ActivatedRoute) {
 
     this.route.queryParamMap.subscribe(params => {
       const validLanguages = ['pt', 'en'];
-      const requiredLanguage = params['lang'] || this.localStorage.getItem('lang') || 'en';
+      const requiredLanguage = params.lang || this.localStorage.getItem('lang') || 'en';
       const usedLanguage = validLanguages.some(l => l === requiredLanguage) ? requiredLanguage : 'en';
 
       localStorage.setItem('lang', usedLanguage);
