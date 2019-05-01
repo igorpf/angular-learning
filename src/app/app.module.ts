@@ -9,7 +9,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { windowFactory, localStorageFactory } from './bootstrap';
-import { TranslationService } from './services/translation.service';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,29 @@ import { TranslationService } from './services/translation.service';
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
-    { provide: LOCALE_ID, useFactory: (translationService: TranslationService) => translationService.getCurrentLocale(), deps: [TranslationService] },
     { provide: 'window', useFactory: windowFactory },
     { provide: 'localStorage', useFactory: localStorageFactory }
+  ],
+  exports: [
+    TranslateModule
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

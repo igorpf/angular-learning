@@ -1,27 +1,27 @@
 <form (ngSubmit)="onSubmit(registrationForm.value)" [formGroup]="registrationForm">
-  <h1 i18n="@@registrationFormHeader">header</h1>
+  <h1 translate>registrationForm.header</h1>
 
   <div fxLayout="column">
     <mat-form-field>
-      <mat-label i18n="@@registrationFormEmail">email</mat-label>
+      <mat-label translate>form.email</mat-label>
       <input matInput type="text" formControlName="email" name="email">
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label i18n="@@registrationFormCpf">cpf</mat-label>
+      <mat-label translate>form.cpf</mat-label>
       <input matInput type="text" formControlName="cpf" name="cpf" mask="{{ cpfMask }}" [showMaskTyped]="true">
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label i18n="cpf@@registrationFormPassword">pw</mat-label>
+      <mat-label translate>form.password</mat-label>
       <input matInput type="password" formControlName="password" name="password">
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label i18n="@@registrationFormPasswordConfirmation">conf</mat-label>
-      <input matInput type="password" formControlName="password-confirmation" name="password-confirmation">
+      <mat-label translate>form.passwordConfirmation</mat-label>
+      <input matInput type="password" formControlName="passwordConfirmation" name="passwordConfirmation">
     </mat-form-field>
 
-    <button mat-button type="submit" [disabled]="!registrationForm.valid" i18n="@@registrationFormRegister">reg</button>
+    <button mat-button type="submit" [disabled]="!registrationForm.valid">{{'registrationForm.submit' | translate}}</button>
   </div>
 </form>

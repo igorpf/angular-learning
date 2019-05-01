@@ -1,4 +1,4 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture, inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { routes } from './app-routing.module';
@@ -8,6 +8,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule } from 'ngx-mask';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginModule } from './components/login/login.module';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { localStorageFactory } from './bootstrap';
+import { ActivatedRoute } from '@angular/router';
+import { LocalStorageService } from './services/local-storage.service';
 
 describe('AppComponent', () => {
   let app: AppComponent;
@@ -22,12 +26,15 @@ describe('AppComponent', () => {
         NoopAnimationsModule,
         NgxMaskModule.forRoot(),
         ReactiveFormsModule,
-        LoginModule
+        LoginModule,
+        TranslateModule.forRoot()
       ],
       declarations: [
         AppComponent
       ],
-      providers: []
+      providers: [
+        { provide: 'localStorage', useFactory: localStorageFactory }
+      ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(AppComponent);
       app = fixture.debugElement.componentInstance;
@@ -42,4 +49,11 @@ describe('AppComponent', () => {
   it(`should have as title 'angular-first-steps'`, () => {
     expect(app.title).toEqual('angular-first-steps');
   });
+
+  it(`should default to english language when an invalid language is selected`, 
+    inject([TranslateService, ActivatedRoute, LocalStorageService], (translate: TranslateService, route, localStorage: LocalStorageService) => {
+      localStorage.setItem('lang', 'some invalid language');
+      const app = new AppComponent(translate, localStorage, route);
+      expect(translate.getBrowserLang()).toEqual('en');
+  }));
 });

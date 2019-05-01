@@ -9,6 +9,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LoginRoutingModule } from './login-routing.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginRoutingModule } from './login-routing.module';
     FlexLayoutModule,
     NgxMaskModule.forRoot(),
     ReactiveFormsModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    TranslateModule
   ],
   exports: [
     RouterModule

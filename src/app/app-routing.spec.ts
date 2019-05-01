@@ -3,24 +3,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { routes, AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from './material.module';
 import { NgxMaskModule } from 'ngx-mask';
-import { LoginModule } from '../components/login/login.module';
-
-describe('AppRoutingModule', () => {
-
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                AppRoutingModule
-            ]
-        });
-    }));
-
-    it(`should not provide router module`, () => {
-        expect(() => TestBed.get(RouterModule)).toThrowError();
-    });
-});
+import { LoginModule } from './components/login/login.module';
 
 describe('AppRoutingModule.forRoot()', () => {
 

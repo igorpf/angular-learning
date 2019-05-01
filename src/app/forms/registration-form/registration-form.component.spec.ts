@@ -6,6 +6,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { updateInputDispatchingEvent } from '../input.spec';
 import { MaterialModule } from 'src/app/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('RegistrationFormComponent', () => {
   let component: RegistrationFormComponent;
@@ -18,7 +19,8 @@ describe('RegistrationFormComponent', () => {
         ReactiveFormsModule,
         MaterialModule,
         NgxMaskModule.forRoot(),
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        TranslateModule.forRoot()
       ]
     })
       .compileComponents();
@@ -43,7 +45,7 @@ describe('RegistrationFormComponent', () => {
     const element = fixture.nativeElement;
     updateInputDispatchingEvent(element.querySelector('input[name=email]'), expectedEmail);
     updateInputDispatchingEvent(element.querySelector('input[name=password]'), expectedPassword);
-    updateInputDispatchingEvent(element.querySelector('input[name=password-confirmation]'), expectedPassword);
+    updateInputDispatchingEvent(element.querySelector('input[name=passwordConfirmation]'), expectedPassword);
     updateInputDispatchingEvent(element.querySelector('input[name=cpf]'), expectedCpf);
 
     fixture.detectChanges();
@@ -68,7 +70,7 @@ describe('RegistrationFormComponent', () => {
     const element = fixture.nativeElement;
     updateInputDispatchingEvent(element.querySelector('input[name=email]'), expectedEmail);
     updateInputDispatchingEvent(element.querySelector('input[name=password]'), expectedPassword);
-    updateInputDispatchingEvent(element.querySelector('input[name=password-confirmation]'), expectedPassword);
+    updateInputDispatchingEvent(element.querySelector('input[name=passwordConfirmation]'), expectedPassword);
     updateInputDispatchingEvent(element.querySelector('input[name=cpf]'), expectedCpf);
 
     fixture.detectChanges();
@@ -86,7 +88,7 @@ describe('RegistrationFormComponent', () => {
     const element = fixture.nativeElement;
     updateInputDispatchingEvent(element.querySelector('input[name=email]'), expectedEmail);
     updateInputDispatchingEvent(element.querySelector('input[name=password]'), expectedPassword);
-    updateInputDispatchingEvent(element.querySelector('input[name=password-confirmation]'), 'another password');
+    updateInputDispatchingEvent(element.querySelector('input[name=passwordConfirmation]'), 'another password');
     updateInputDispatchingEvent(element.querySelector('input[name=cpf]'), expectedCpf);
 
     fixture.detectChanges();

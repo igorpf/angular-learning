@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegistrationFormComponent } from 'src/app/forms/registration-form/registration-form.component';
 import { MaterialModule } from 'src/app/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -17,7 +18,8 @@ describe('LoginComponent', () => {
         NgxMaskModule.forRoot(),
         ReactiveFormsModule,
         MaterialModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        TranslateModule.forRoot()
       ],
       declarations: [ 
         LoginComponent,
