@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginFormComponent } from './login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/material.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -11,7 +14,10 @@ describe('LoginFormComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LoginFormComponent],
       imports: [
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MaterialModule,
+        TranslateModule.forRoot(),
+        BrowserAnimationsModule
       ]
     })
       .compileComponents();
@@ -61,6 +67,7 @@ describe('LoginFormComponent', () => {
 
     fixture.detectChanges();
 
+    element.querySelector('button[type="submit"]').disabled = false;
     element.querySelector('button[type="submit"]').click();
     expect(component.loginForm.valid).toBeFalsy();
     expect(component.submitted.emit).not.toHaveBeenCalled();

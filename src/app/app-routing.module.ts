@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 export const routes: Routes = [
-  {path: 'login', loadChildren: './components/login/login.module#LoginModule'}
+  {path: 'login', loadChildren: './components/login/login.module#LoginModule'},
+  {path: 'register', loadChildren: './components/register/register.module#RegisterModule'}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxMaskModule } from 'ngx-mask';
 
@@ -13,7 +13,6 @@ import { TranslateLoader, TranslateModule, TranslateCompiler } from '@ngx-transl
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateMessageFormatCompiler } from 'ngx-translate-messageformat-compiler';
-
 
 @NgModule({
   declarations: [

@@ -3,10 +3,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegistrationFormComponent } from './registration-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
-import { updateInputDispatchingEvent } from '../input.spec';
 import { MaterialModule } from 'src/app/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
+import { updateInputDispatchingEvent } from 'src/app/forms/input.spec';
 
 describe('RegistrationFormComponent', () => {
   let component: RegistrationFormComponent;
@@ -93,6 +93,7 @@ describe('RegistrationFormComponent', () => {
 
     fixture.detectChanges();
 
+    element.querySelector('button[type="submit"]').disabled = false;
     element.querySelector('button[type="submit"]').click();
     expect(component.registrationForm.valid).toBeFalsy();
     expect(component.submitted.emit).not.toHaveBeenCalled();

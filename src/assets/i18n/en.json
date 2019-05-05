@@ -3,6 +3,10 @@
         "header": "Registration Form",
         "submit": "Register"
     },
+    "loginForm": {
+        "header": "Enter your account",
+        "submit": "Login"
+    },
     "form": {
         "email": "Email",
         "cpf": "CPF",

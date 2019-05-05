@@ -1,36 +1,36 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from './login.component';
-import { NgxMaskModule } from 'ngx-mask';
+import { RegisterComponent } from './register.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule } from 'ngx-mask';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
-import { LoginFormComponent } from './login-form/login-form.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('RegisterComponent', () => {
+  let component: RegisterComponent;
+  let fixture: ComponentFixture<RegisterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      declarations: [ 
+        RegisterComponent,
+        RegistrationFormComponent
+      ],
       imports: [
-        NgxMaskModule.forRoot(),
         ReactiveFormsModule,
         MaterialModule,
-        NoopAnimationsModule,
+        NgxMaskModule.forRoot(),
+        BrowserAnimationsModule,
         TranslateModule.forRoot()
-      ],
-      declarations: [
-        LoginComponent,
-        LoginFormComponent
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

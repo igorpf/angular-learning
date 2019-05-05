@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { cpfValidator } from 'src/app/validators/cpf-validator';
-import { cpfMask } from '../mask';
+import { cpfMask } from '../../../forms/mask';
 
 @Component({
   selector: 'app-registration-form',
