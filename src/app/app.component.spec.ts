@@ -11,7 +11,7 @@ import { LoginModule } from './components/login/login.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { localStorageFactory } from './bootstrap';
 import { ActivatedRoute } from '@angular/router';
-import { LocalStorageService } from './services/local-storage.service';
+import { LocalStorageService } from './shared/local-storage/local-storage.service';
 
 describe('AppComponent', () => {
   let app: AppComponent;
@@ -55,6 +55,6 @@ describe('AppComponent', () => {
           (translate: TranslateService, route, localStorage: LocalStorageService) => {
       localStorage.setItem('lang', 'some invalid language');
       const appComponent = new AppComponent(translate, localStorage, route);
-      expect(translate.getBrowserLang()).toEqual('en');
+      expect(translate.getDefaultLang()).toEqual('en');
   }));
 });

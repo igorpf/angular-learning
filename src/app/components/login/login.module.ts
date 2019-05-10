@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LoginRoutingModule } from './login-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { APP_CONFIG, AppConfig } from 'src/app/app.config';
 
 @NgModule({
   declarations: [
@@ -22,10 +24,14 @@ import { TranslateModule } from '@ngx-translate/core';
     NgxMaskModule.forRoot(),
     ReactiveFormsModule,
     LoginRoutingModule,
-    TranslateModule
+    TranslateModule,
+    SharedModule
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    { provide: APP_CONFIG, useValue: AppConfig }
   ]
 })
 export class LoginModule { }

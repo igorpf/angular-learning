@@ -7,6 +7,9 @@ import { MaterialModule } from 'src/app/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AppConfig, APP_CONFIG } from 'src/app/app.config';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -19,7 +22,12 @@ describe('LoginComponent', () => {
         ReactiveFormsModule,
         MaterialModule,
         NoopAnimationsModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        HttpClientModule,
+        SharedModule
+      ],
+      providers: [
+        { provide: APP_CONFIG, useValue: AppConfig }
       ],
       declarations: [
         LoginComponent,

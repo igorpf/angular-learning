@@ -1,8 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LocalStorageService {
 
   constructor(@Inject('localStorage') private localStorage) { }

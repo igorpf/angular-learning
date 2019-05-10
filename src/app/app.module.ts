@@ -8,11 +8,12 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { windowFactory, localStorageFactory } from './bootstrap';
 import { TranslateLoader, TranslateModule, TranslateCompiler } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateMessageFormatCompiler } from 'ngx-translate-messageformat-compiler';
+import { SharedModule } from './shared/shared.module';
+import { APP_CONFIG, AppConfig } from './app.config';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { TranslateMessageFormatCompiler } from 'ngx-translate-messageformat-comp
     FlexLayoutModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
-
+    SharedModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -41,8 +42,7 @@ import { TranslateMessageFormatCompiler } from 'ngx-translate-messageformat-comp
     })
   ],
   providers: [
-    { provide: 'window', useFactory: windowFactory },
-    { provide: 'localStorage', useFactory: localStorageFactory }
+    { provide: APP_CONFIG, useValue: AppConfig }
   ],
   exports: [
     TranslateModule
